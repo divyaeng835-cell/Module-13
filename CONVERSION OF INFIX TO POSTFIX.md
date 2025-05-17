@@ -4,7 +4,7 @@
 ---
 
 ### AIM  
-To write a Python program to convert a given Infix expression to Postfix expression by following the precedence and associative rules. The input expression contains only Division, Subtraction, and Bitwise AND operators. A dictionary is used to set the priority for operators, and a set is used to hold the operators used in the given expression.
+To write a Python program to convert a given Infix expression to Postfix expression by following the precedence and associative rules. The input expression contains only ^ and * operators. A dictionary is used to set the priority for operators, and a set is used to hold the operators used in the given expression.
 
 ---
 
@@ -28,13 +28,39 @@ To write a Python program to convert a given Infix expression to Postfix express
 ---
 
 ### PROGRAM
-
 ```
+Operators = set(['*','(',')','^'])  
+Priority = {'*':2,'^':3} 
+ 
+ 
+def infixToPostfix(expression): 
 
+    stack = [] 
+    output = '' 
+    for char in expression:
+        if char not in Operators:
+            output+=char
+        elif char=='(':
+            stack.append('(')
+        elif char==')':
+            while stack and stack[-1]!='(':
+                output+=stack.pop()
+            stack.pop()
+        else:
+            while stack and stack[-1]!='('and Priority[char]<=Priority[stack[-1]]:
+                output+=stack.pop()
+            stack.append(char)
+    while stack:
+        output+=stack.pop()
+    
+    return output
+    
+expression =input()
+print("infix notation: ",expression)
+print("postfix notation: ",infixToPostfix(expression))
 ```
 
 ### OUTPUT
-
-
+![Screenshot 2025-05-17 105642](https://github.com/user-attachments/assets/d3a8d298-8d3b-4366-ae98-bbf67c2cd4a1)
 ### RESULT
-
+Thus the python program for conversion of infix to postfix has been executed successfully 
