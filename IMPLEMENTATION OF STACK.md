@@ -1,12 +1,10 @@
 # Exp.No:31  
 ## IMPLEMENTATION OF STACK
 
----
 
-### AIM  
+### AIM 
 To write a Python program to implement a stack using a list and its built-in methods (`append()`, `pop()`).
-
----
+Get five items from the user and save them in stack, then pop two items from stack and display the stack before and after popped. 
 
 ### ALGORITHM
 
@@ -22,10 +20,23 @@ To write a Python program to implement a stack using a list and its built-in met
 8. **Display the stack again** to show the remaining elements.
 9. **End the program.**
 
----
-
 ### PROGRAM
 
 ```
+stack = []
+for i in range(5):
+    stack.append(input())
+print("Stack before elements are popped")
+print(stack)
+print()
+stack.pop()
+stack.pop()
+print("Stack after elements are popped:")
+print(stack)
 
 ```
+### OUTPUT
+![Screenshot 2025-05-17 110933](https://github.com/user-attachments/assets/0f7b7bd9-d881-42b0-a358-55b9dabc6e76)
+
+### RESULT
+Thus the python program to implement a stack using a list and its built-in methods (`append()`, `pop()`) has been implemented and executed successfully.
